@@ -1,3 +1,4 @@
+# require_relative "host.rb"
 # The Steps
 # 1. Start by defining the Listing class in a file named listing.rb.
 # 2. The class should have attributes of host, beds, dates_available, cancellation, guest, reviews, and price. Give each attribute a reader and a writer.
