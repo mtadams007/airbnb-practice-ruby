@@ -44,16 +44,26 @@ class Listing
     @guest = {}
     @reviews = {}
     @price = price
+    puts 'hi'
   end
   def reserve_and_pay(guest_name, num_nights)
     @guest[:"#{guest_name}"] = num_nights
     num_nights.each do |dates|
-    @dates_available.delete(dates)
-  end
-    @price
+      @dates_available.delete(dates)
+    end
+  cost = @price * num_nights.length
+  cost
   end
   def leave_review(guest_name,guest_review)
     @reviews[:"#{guest_name}"] = guest_review
+  end
+end
+
+class Beach_house < Listing
+  attr_accessor :private
+  def initialize(host, beds, dates_available, price, private)
+    super(host, beds, dates_available, price)
+    @private = private
   end
 end
 
@@ -62,3 +72,7 @@ bob.reserve_and_pay('ian', [3,4])
 # puts bob.dates_available
 # bob.leave_review("ian", "Overrated.")
 puts bob.guest
+bedroom = Beach_house.new('bob',2,[1,2,3,4], 500, true)
+puts bedroom
+puts bedroom.reserve_and_pay('david', [1,2,3])
+puts bedroom.private
